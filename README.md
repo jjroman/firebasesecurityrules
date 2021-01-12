@@ -1,2 +1,2 @@
 # Some Firebase basic security rules
-In case do you need some firebase security rules as a sample, you can use them to start. 
+In case you need some firebase security rules as a sample, you can use them to start. 
