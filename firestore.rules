@@ -13,8 +13,8 @@ service cloud.firestore {
       match /users/{userId} {
          allow read: if request.auth.uid == userId;
       }
-      
-  	   match /content/{document=**} {
+    
+      match /content/{document=**} {
 
          // Only the same user or an admin has permission to read the content.
     	   allow read: if request.auth != null && (request.auth.uid == resource.data.userId || isAdmin());   
