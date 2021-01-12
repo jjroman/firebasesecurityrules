@@ -6,14 +6,14 @@ service cloud.firestore {
   match /databases/{database}/documents {
   
       function isAdmin(){
-      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "admin";
+         return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "admin";
       }
 
       // Only the same user has permission to get its data.
       match /users/{userId} {
          allow read: if request.auth.uid == userId;
       }
-
+      
   	   match /content/{document=**} {
 
          // Only the same user or an admin has permission to read the content.
